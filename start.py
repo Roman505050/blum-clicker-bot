@@ -72,6 +72,7 @@ check = gw.getWindowsWithTitle(window_name)
 
 while True:
     print("INFO: Чим більше шанс ви вкажете, тим більше буде відбуватися кліків.")
+    print()
     try:
         ranint = int(input("Введіть число від 1 до 100: "))
         if 1 <= ranint <= 100:
@@ -84,13 +85,13 @@ while True:
         print("ERROR: Введіть число!")
 
 if not check:
-    print(f"\nINFO: Вікно {window_name} не найдено!\nБудь ласка, виберіть вікно Telegram.")
+    print(f"\nINFO: Вікно {window_name} не найдено!\nINFO: Будь ласка, виберіть вікно Telegram.")
     window_name = choose_window_gui()
 
 if not window_name or not gw.getWindowsWithTitle(window_name):
-    print("\nINFO: Не вдалося знайти вказане вікно!\nЗапустіть Telegram, а потім перезапустіть бота!")
+    print("\nINFO: Не вдалося знайти вказане вікно!\nINFO: Запустіть Telegram, а потім перезапустіть бота!")
 else:
-    print(f"\nINFO: Вікно {window_name} знайдено\nНатисніть 'S' для старту.")
+    print(f"\nINFO: Вікно {window_name} знайдено\nINFO: Натисніть 'S' для старту.")
 
 telegram_window = gw.getWindowsWithTitle(window_name)[0]
 paused = True
