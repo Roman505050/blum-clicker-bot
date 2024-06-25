@@ -47,7 +47,7 @@ def check_white_color(scrnb, window_rectb):
             screen_xb = window_rectb[0] + xb
             screen_yb = window_rectb[1] + yb
             click(screen_xb, screen_yb)
-            print('Починаю гру')
+            print('INFO: Починаю гру')
             time.sleep(0.001)
             return True
     return False
@@ -77,7 +77,6 @@ while True:
         if 1 <= ranint <= 100:
             print(f"INFO: Ви вказали {ranint}%")
             chance: float = ranint / 100
-            print(f"INFO: Шанс вказаний: {chance}")
             break
         else:
             print("ERROR: Введіть число від 1 до 100!")
@@ -85,13 +84,13 @@ while True:
         print("ERROR: Введіть число!")
 
 if not check:
-    print(f"\nВікно {window_name} не найдено!\nБудь ласка, виберіть вікно Telegram.")
+    print(f"\nINFO: Вікно {window_name} не найдено!\nБудь ласка, виберіть вікно Telegram.")
     window_name = choose_window_gui()
 
 if not window_name or not gw.getWindowsWithTitle(window_name):
-    print("\nНе вдалося знайти вказане вікно!\nЗапустіть Telegram, а потім перезапустіть бота!")
+    print("\nINFO: Не вдалося знайти вказане вікно!\nЗапустіть Telegram, а потім перезапустіть бота!")
 else:
-    print(f"\nВікно {window_name} знайдено\nНатисніть 'S' для старту.")
+    print(f"\nINFO: Вікно {window_name} знайдено\nНатисніть 'S' для старту.")
 
 telegram_window = gw.getWindowsWithTitle(window_name)[0]
 paused = True
@@ -104,10 +103,10 @@ while True:
         paused = not paused
         last_pause_time = time.time()
         if paused:
-            print('Пауза')
+            print('INFO: Пауза')
         else:
-            print('Працюю')
-            print(f"Для паузи натисніть 'S'")
+            print('INFO: Працюю')
+            print(f"INFO: Для паузи натисніть 'S'")
         time.sleep(0.2)
 
     window_rect = (
